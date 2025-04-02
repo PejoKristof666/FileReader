@@ -24,19 +24,42 @@ namespace FileReader
             this.fileName = fileName;
         }
 
-        public List<string> ReadFile()
+        public List<Cars> ReadFile()
         {
-            List<string> all = new List<string>();
+            List<Cars> all = new List<Cars>();
             try
             {
-                all = File.ReadAllLines(fileName, Encoding.UTF8).Skip(1).ToList();
-                //all.RemoveAt(all.Count-1);
+                foreach(string line in File.ReadAllLines(fileName, Encoding.UTF8).Skip(1))
+                {
+                    all.Add(new Cars(line));
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
             return all;
+        }
+
+        public void WriteOneLine(Cars oneCar)
+        {
+            using (StreamWriter write = new StreamWriter(fileName,true , Encoding.UTF8))
+            {
+                write.Write($"\n{oneCar.Manufacturer};{oneCar.Model};{oneCar.Power};{oneCar.Weight}");
+            }
+        }
+
+        public void WriteEverything(List<Cars> all)
+        {
+            using (StreamWriter write = new StreamWriter(fileName, false, Encoding.UTF8))
+            {
+                write.WriteLine("Random első sor");
+                for (int i = 0; i < all.Count-1; i++)
+                {
+                    write.WriteLine($"{all[i].Manufacturer};{all[i].Model};{all[i].Power};{all[i].Weight}");
+                }
+                write.WriteLine($"{all.Last().Manufacturer};{all.Last().Model};{all.Last().Power};{all.Last().Weight}");
+            }
         }
     }
 }

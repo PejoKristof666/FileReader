@@ -7,8 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Name="everything" Background="lime" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Name="everything" Grid.Column="2" Grid.RowSpan="5" Background="lime">
             
         </StackPanel>
+        <Label Content="Gyártó: " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Grid.Row="0"></Label>
+        <TextBox Name="ManufacturerInput" Background="AliceBlue" Grid.Column="1" Margin="20 20" Padding="5" Grid.Row="0"></TextBox>
+
+        <Label Content="Modell:  " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Grid.Row="1"></Label>
+        <TextBox Name="ModellInput" Background="AliceBlue" Grid.Column="1" Margin="20 20" Padding="5" Grid.Row="1"></TextBox>
+
+        <Label Content="Teljesítmény (LE): " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Grid.Row="2"></Label>
+        <TextBox Name="PowerInput" Background="AliceBlue" Grid.Column="1" Margin="20 20" Padding="5" Grid.Row="2"></TextBox>
+
+        <Label Content="Súly (kg): " VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Grid.Row="3"></Label>
+        <TextBox Name="WeightInput" Background="AliceBlue" Grid.Column="1" Margin="20 20" Padding="5" Grid.Row="3"></TextBox>
+
+        <Button Name="CreateButton" Click="CreateEvent" Grid.Row="4" Grid.Column="0" Content="Létrehozás" FontSize="25"></Button>
+        <Button Name="EditButton" Click="EditEvent" Grid.Row="4" Grid.Column="1" Content="Módosítás" FontSize="25" IsEnabled="false"></Button>
     </Grid>
 </Window>
