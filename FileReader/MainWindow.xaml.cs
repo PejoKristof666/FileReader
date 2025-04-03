@@ -28,6 +28,7 @@ namespace FileReader
             InitializeComponent();
             file = new FileManager("data.txt");
             Start();
+            OtherStart();
         }
 
         void Start()
@@ -43,6 +44,41 @@ namespace FileReader
                 everything.Children.Add(oneLabel); ;
             }
         }
+
+        void OtherStart()
+        {
+            List<epitoanyag> lista = new List<epitoanyag>();
+            lista.Add(new fa { faanyag = "Tölgy", kemenyseg = 5f, suly = 30.25, nev = "Tölgyfa", ar = 1795 });
+            lista.Add(new vas { femtipus = "Acél", suruseg = 5f, suly = 150.25, nev = "Hehe", ar = 50000 });
+            lista.Add(new tegla { tipus = "Tört tégla", szin = "Piros", suly = 60.25, nev = "Piros tört tégla", ar = 68000 });
+
+            //foreach (epitoanyag item in lista)
+            //{
+            //    if (item is fa)
+            //    {
+            //        MessageBox.Show($"Fa típusa: { (item as fa).faanyag}");
+            //    }
+            //    else if (item is vas)
+            //    {
+            //        MessageBox.Show($"Fém típusa: { (item as vas).femtipus}");
+            //    }
+            //    else if (item is tegla)
+            //    {
+            //        MessageBox.Show($"Tégla típusa: { (item as tegla).tipus}");
+            //    }
+            //    item.ar += 50;
+            //}
+
+            List<object> lista2 = new List<object>();
+            lista2.Add(10);
+            lista2.Add("kolbasz666");
+            lista2.Add(true);
+            lista2.Add('c');
+            lista2.Add(66.666);
+            lista2.Add(new TextBox());
+            lista2.Add(new Label { Content = "Kolbi finom" });
+        }
+
         void CarClick(object s, EventArgs e)
         {
             Label oneLabel = s as Label;
